@@ -1,0 +1,26 @@
+[project]
+name = "tools"
+version = "0.1.0"
+description = "Personal CLIs: awc (AWS), gcp (GCP), tfc (Terraform/Terragrunt)"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "boto3",
+    "click",
+    "pyyaml",
+    "simple-term-menu",
+    "tabulate",
+]
+
+[project.scripts]
+awc = "tools.awc:cli"
+gcp = "tools.gcp:cli"
+tfc = "tools.tfc:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tools"]
